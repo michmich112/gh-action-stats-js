@@ -1,0 +1,16 @@
+{
+  "name": "gh-action-stats",
+  "version": "0.0.1",
+  "description": "Library to get stats for github action runs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "github-actions"
+  ],
+  "author": "michmich112",
+  "license": "MIT"
+}
