@@ -38,6 +38,6 @@ Please make sure you state that you are using this package in your README as to 
 This packages is made to work with node 12 or above.
 
 ## Todo
-[] Runtime stats for debugging possible problems in runs.
-[] Test on self hosted runners
+- [ ] Runtime stats for debugging possible problems in runs.
+- [ ] Test on self hosted runners
 
