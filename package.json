@@ -1,10 +1,10 @@
 {
   "name": "gh-action-stats",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library to get stats for github action runs",
   "main": "index.js",
   "scripts": {
-    "test": "node index.spec.js"
+    "test": "jest"
   },
   "keywords": [
     "github",
@@ -12,5 +12,8 @@
     "github-actions"
   ],
   "author": "michmich112",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.1.1"
+  }
 }
