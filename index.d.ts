@@ -1,3 +1,3 @@
-declare function collectStats(dirname: string): void;
+declare function collectStats(): void;
 export default collectStats;
 

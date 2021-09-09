@@ -1,6 +1,6 @@
 {
   "name": "gh-action-stats",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library to get stats for github action runs",
   "main": "index.js",
   "scripts": {
