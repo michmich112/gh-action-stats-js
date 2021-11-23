@@ -1,7 +1,11 @@
 {
   "name": "gh-action-stats",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Library to get stats for github action runs",
+  "repository": {
+    "type": "git",
+    "url": "github.com/michmich112/gh-action-stats-js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest"
