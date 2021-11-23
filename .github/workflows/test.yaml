@@ -4,30 +4,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: install packages
-        run: |
-          npm install
-      - name: Test package
-        run: |
-          npm run test
+  # unit-tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: '12'
+  #     - name: install packages
+  #       run: |
+  #         npm install
+  #     - name: Test package
+  #       run: |
+  #         npm run test
 
   test-in-runners:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
-    needs: unit-tests
+    # strategy:
+    #   matrix:
+    #     os: [ubuntu-latest, macos-latest]
+    # runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
+    # needs: unit-tests
     steps:
       - uses: actions/checkout@v2
       - name: get paths
         run: | 
-          find /home
+          ls -lah /home
+          ls -lah /home/runner
+          ls -lah /home/runner/work
     
 
