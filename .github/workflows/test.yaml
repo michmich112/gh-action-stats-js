@@ -30,6 +30,6 @@ jobs:
         run: | 
           echo $RUNNER_NAME
           echo $RUNNER_OS
-          ls -lah /home/hunner/work/_actions 
+          ls -lah /home/runner/work/_actions 
     
 
