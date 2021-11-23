@@ -23,11 +23,12 @@ jobs:
     #   matrix:
     #     os: [ubuntu-latest, macos-latest]
     # runs-on: ${{ matrix.os }}
-    runs-on: macos-latest
+    runs-on: windows-latest
     # needs: unit-tests
     steps:
       - uses: actions/checkout@v2
       - name: get paths
         run: | 
-          find / | grep actions
+          cd /
+          dir problem-matcher.json /s
     
