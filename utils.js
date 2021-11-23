@@ -1,3 +1,17 @@
+const path = require('path');
+
+function getOsPath() {
+  const runner = process.env.RUNNER_OS;
+  switch (runner) {
+    case 'Linux':
+      return '/home/runner/work/_actions/';
+    case 'macOS':
+      return '/System/Volumes/Data/Users/runner/work/_actions/';
+    case 'Windows':
+      return 'D:\\a\\_actions\\';
+  }
+}
+
 /**
  * returns the following information about the current action
  * creator: github user who created the action
@@ -6,9 +20,9 @@
  * Note this would only work with macOS and Linux, i cant make sure that it works for windows just yet.
  */
 function getActionMetadataFromDirname(dirname) {
-  const metadata = dirname.replace('/home/runner/work/_actions/', '') // remove os path
-    .replace('/node_modules/gh-action-stats', '') // remove node_modules and 
-    .split('/')
+  const metadata = dirname.replace(getOsPath(), '') // remove os path
+    .replace(['', 'node_modules', 'gh-action-stats'].join(path.sep), '') // remove node_modules and 
+    .split(path.sep)
   return {
     creator: metadata[0],
     name: metadata[1],

@@ -4,30 +4,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  # unit-tests:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: '12'
-  #     - name: install packages
-  #       run: |
-  #         npm install
-  #     - name: Test package
-  #       run: |
-  #         npm run test
-
-  test-in-runners:
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, macos-latest]
-    # runs-on: ${{ matrix.os }}
-    runs-on: macos-latest
-    # needs: unit-tests
+  unit-tests:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: install packages
+        run: |
+          npm install
+      - name: Test package
+        run: |
+          npm run test
+  
+  test-in-runners:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    needs: unit-tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: get dir path
+        id: get-path
+        uses: michmich112/get-actions-dir-path@main
       - name: get paths
         run: | 
-          find / | grep actions
+          echo "path -> $DIRPATH"
+        env:
+          DIRPATH: ${{ steps.get-path.outputs.dir-path }}
     
