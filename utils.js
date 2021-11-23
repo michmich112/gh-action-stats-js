@@ -36,9 +36,11 @@ function getRunMetadata() {
     'GITHUB_ACTION',
     'GITHUB_ACTOR',
     'GITHUB_REPOSITORY',
+    'GITHUB_EVENT_NAME',
     'GITHUB_REF',
     'GITHUB_HEAD_REF',
     'GITHUB_BASE_REF',
+    'RUNNER_NAME',
     'RUNNER_OS'
   ];
   return envVars.map(v => ({ [v.toLowerCase()]: process.env[v] || null }))

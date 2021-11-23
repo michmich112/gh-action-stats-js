@@ -141,9 +141,11 @@ describe('GetRunMetadata Tests', () => {
     'GITHUB_ACTION': 'action',
     'GITHUB_ACTOR': 'actor',
     'GITHUB_REPOSITORY': 'repository',
+    'GITHUB_EVENT_NAME': 'push',
     'GITHUB_REF': 'ref',
     'GITHUB_HEAD_REF': 'head_ref',
     'GITHUB_BASE_REF': 'base_ref',
+    'RUNNER_NAME': 'self-hosted',
     'RUNNER_OS': 'runner_os',
   };
 
@@ -155,9 +157,11 @@ describe('GetRunMetadata Tests', () => {
       'github_action': 'action',
       'github_actor': 'actor',
       'github_repository': 'repository',
+      'github_event_name': 'push',
       'github_ref': 'ref',
       'github_head_ref': 'head_ref',
       'github_base_ref': 'base_ref',
+      'runner_name': 'self-hosted',
       'runner_os': 'runner_os'
     });
   });
@@ -170,9 +174,11 @@ describe('GetRunMetadata Tests', () => {
       'github_action': null,
       'github_actor': null,
       'github_repository': null,
+      'github_event_name': null,
       'github_ref': null,
       'github_head_ref': null,
       'github_base_ref': null,
+      'runner_name': null,
       'runner_os': null
     });
   });
