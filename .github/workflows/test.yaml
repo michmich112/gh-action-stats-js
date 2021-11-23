@@ -1,0 +1,29 @@
+name: Test package
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test package
+        run: |
+          npm run test
+
+  test-in-runners:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    needs: unit-tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: get paths
+        run: | 
+          echo $RUNNER_NAME
+          echo $RUNNER_OS
+          ls -lah /home/hunner/work/_actions 
+    
+
