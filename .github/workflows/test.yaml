@@ -34,4 +34,4 @@ jobs:
           echo "path -> $DIRPATH"
         env:
           DIRPATH: ${{ steps.get-path.outputs.dir-path }}
-    
+
