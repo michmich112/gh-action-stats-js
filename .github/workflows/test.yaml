@@ -28,8 +28,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: get paths
         run: | 
-          echo $RUNNER_NAME
-          echo $RUNNER_OS
-          ls -lah /home/runner/work/_actions 
+          find /home
     
 
