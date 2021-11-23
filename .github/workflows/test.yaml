@@ -29,6 +29,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: get paths
         run: | 
-          ls -lah /System/Volumes/Data/home 
+          find /
     
 
