@@ -1,3 +1,5 @@
+const { getActionMetadataFromDirname } = require('../utils');
+
 describe('GetActionMetadataFromDirname Tests Actual Runner', () => {
   test('It can get the correct results from in the runner environment', () => {
     if (process.env.CI) {
