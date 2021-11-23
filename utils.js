@@ -6,7 +6,7 @@ function getOsPath() {
     case 'Linux':
       return '/home/runner/work/_actions/';
     case 'macOS':
-      return '/System/Volumes/Data/Users/runner/work/_actions/';
+      return '/Users/runner/work/_actions/';
     case 'Windows':
       return 'D:\\a\\_actions\\';
   }

@@ -48,7 +48,7 @@ describe('GetActionMetadataFromDirname Tests Ubuntu', () => {
 describe('GetActionMetadataFromDirname Tests MacOs', () => {
   test('it can get the right info from a action with a version', () => {
     process.env.RUNNER_OS = 'macOS';
-    const dirname = `/System/Volumes/Data/Users/runner/work/_actions/michmich112/version-bumper/v1.0.0/node_modules/gh-action-stats`;
+    const dirname = `/Users/runner/work/_actions/michmich112/version-bumper/v1.0.0/node_modules/gh-action-stats`;
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
       creator: 'michmich112',
@@ -58,7 +58,7 @@ describe('GetActionMetadataFromDirname Tests MacOs', () => {
   });
 
   test('it can get the right info from an action with a commit hash', () => {
-    const dirname = `/System/Volumes/Data/Users/runner/work/_actions/michmich112/version-bumper/8fc6e82c93abcdaae3fbb8239d101efc6b63b606/node_modules/gh-action-stats`
+    const dirname = `/Users/runner/work/_actions/michmich112/version-bumper/8fc6e82c93abcdaae3fbb8239d101efc6b63b606/node_modules/gh-action-stats`
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
       creator: 'michmich112',
@@ -68,7 +68,7 @@ describe('GetActionMetadataFromDirname Tests MacOs', () => {
   });
 
   test('it can get the right info from an action with a branch', () => {
-    const dirname = `/System/Volumes/Data/Users/runner/work/_actions/michmich112/version-bumper/master/node_modules/gh-action-stats`
+    const dirname = `/Users/runner/work/_actions/michmich112/version-bumper/master/node_modules/gh-action-stats`
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
       creator: 'michmich112',
@@ -78,7 +78,7 @@ describe('GetActionMetadataFromDirname Tests MacOs', () => {
   });
 
   test('it can get the righ info from an action with a branch with the / character', () => {
-    const dirname = `/System/Volumes/Data/Users/runner/work/_actions/michmich112/version-bumper/fix/bug-fix-important/node_modules/gh-action-stats`
+    const dirname = `/Users/runner/work/_actions/michmich112/version-bumper/fix/bug-fix-important/node_modules/gh-action-stats`
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
       creator: 'michmich112',
@@ -174,4 +174,17 @@ describe('GetRunMetadata Tests', () => {
     });
   });
 });
+
+if (process.env.CI) {
+  describe('GetActionMetadataFromDirname Tests Actual Runner', () => {
+    test('It can get the correct results from in the runner environment', () => {
+      const actionMetadata = getActionMetadataFromDirname(process.env.DIRPATH);
+      expect(actionMetadata).toEqual({
+        creator: 'michmich112',
+        name: 'get-actions-dir-path',
+        version: 'main'
+      })
+    });
+  });
+}
 
