@@ -5,6 +5,8 @@ const { getActionMetadataFromDirname, getRunMetadata } = require('../utils');
 describe('GetActionMetadataFromDirname Tests Ubuntu', () => {
   test('it can get the right info from a action with a version', () => {
     process.env.RUNNER_OS = 'Linux';
+    path.sep = '/';
+
     const dirname = `/home/runner/work/_actions/michmich112/version-bumper/v1.0.0/node_modules/gh-action-stats`;
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
@@ -48,6 +50,7 @@ describe('GetActionMetadataFromDirname Tests Ubuntu', () => {
 describe('GetActionMetadataFromDirname Tests MacOs', () => {
   test('it can get the right info from a action with a version', () => {
     process.env.RUNNER_OS = 'macOS';
+    path.sep = '/';
     const dirname = `/Users/runner/work/_actions/michmich112/version-bumper/v1.0.0/node_modules/gh-action-stats`;
     const actionMetadata = getActionMetadataFromDirname(dirname);
     expect(actionMetadata).toEqual({
@@ -174,17 +177,4 @@ describe('GetRunMetadata Tests', () => {
     });
   });
 });
-
-if (process.env.CI) {
-  describe('GetActionMetadataFromDirname Tests Actual Runner', () => {
-    test('It can get the correct results from in the runner environment', () => {
-      const actionMetadata = getActionMetadataFromDirname(process.env.DIRPATH);
-      expect(actionMetadata).toEqual({
-        creator: 'michmich112',
-        name: 'get-actions-dir-path',
-        version: 'main'
-      })
-    });
-  });
-}
 
