@@ -1,10 +1,14 @@
 {
   "name": "gh-action-stats",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Library to get stats for github action runs",
+  "homepage": "https://actions.boringday.co/get-started",
+  "bugs": {
+    "url": "https://github.com/michmich112/gh-action-stats-js/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "github.com/michmich112/gh-action-stats-js"
+    "url": "https://github.com/michmich112/gh-action-stats-js.git"
   },
   "main": "index.js",
   "scripts": {

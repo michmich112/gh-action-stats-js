@@ -6,7 +6,9 @@ const { getActionMetadataFromDirname, getRunMetadata } = require('./utils.js');
  */
 function collectStats(func) {
   getRunMetrics(func).then(res => {
-    sendStats(res);
+    if ([true, 'true'].includes(process.env.CI)) {
+      sendStats(res);
+    }
     if (res.error !== undefined) {
       throw res.Error;
     }
