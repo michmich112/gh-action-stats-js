@@ -25,7 +25,7 @@ async function getRunMetrics(func) {
     const start = process.hrtime();
     try {
       let res = func();
-      if (res.then !== undefined) {
+      if (res?.then !== undefined) {
         res = await res;
       }
     } catch (e) {
