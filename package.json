@@ -1,6 +1,6 @@
 {
   "name": "gh-action-stats",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Library to get stats for github action runs",
   "homepage": "https://actions.boringday.co/get-started",
   "bugs": {

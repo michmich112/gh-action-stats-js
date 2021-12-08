@@ -47,7 +47,8 @@ function sendStats({ executionTime, error }) {
     execution_time: executionTime || null,
     error: error ? {
       name: error.name,
-      message: error.message
+      message: error.message,
+      stack: error.stack
     } : null
   });
 
