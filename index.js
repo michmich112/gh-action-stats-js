@@ -25,7 +25,8 @@ async function getRunMetrics(func) {
     const start = process.hrtime();
     try {
       let res = func();
-      if (res?.then !== undefined) {
+      // optional chaining only node >= v14
+      if (res !== undefined && res.then !== undefined) {
         res = await res;
       }
     } catch (e) {
