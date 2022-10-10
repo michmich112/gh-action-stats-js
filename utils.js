@@ -46,7 +46,7 @@ function getRunMetadata() {
     'npm_package_version': "package_version"
   }
 
-  return Object.keys(envVarMapping).reduce((acc, cur) => ({...acc, [envVarMapping[cur] ?? cur.toLowerCase()]: process.env[cur] || null}));
+  return Object.keys(envVarMapping).reduce((acc, cur) => ({...acc, [envVarMapping[cur] ? envVarMapping[cur] : cur.toLowerCase()]: process.env[cur] || null}));
 }
 
 module.exports = {
