@@ -182,7 +182,7 @@ describe('GetRunMetadata Tests', () => {
       'github_ref': null,
       'github_head_ref': null,
       'github_base_ref': null,
-      'github_action_repository': 'michmich112/version-bumper',
+      'github_action_repository': null,
       'runner_name': null,
       'runner_os': null,
       'package_version': packagejson.version
