@@ -1,6 +1,7 @@
 jest.mock('path');
 const path = require('path');
 const { getActionMetadataFromDirname, getRunMetadata } = require('../utils');
+const packagejson = require('../package.json');
 
 describe('GetActionMetadataFromDirname Tests Ubuntu', () => {
   test('it can get the right info from a action with a version', () => {
@@ -145,9 +146,10 @@ describe('GetRunMetadata Tests', () => {
     'GITHUB_REF': 'ref',
     'GITHUB_HEAD_REF': 'head_ref',
     'GITHUB_BASE_REF': 'base_ref',
+    'GITHUB_ACTION_REPOSITORY': 'michmich112/version-bumper',
     'RUNNER_NAME': 'self-hosted',
     'RUNNER_OS': 'runner_os',
-  };
+      };
 
   test('it should get all the env variables properly', () => {
     Object.keys(envVars).forEach(ev => process.env[ev] = envVars[ev]);
@@ -161,9 +163,11 @@ describe('GetRunMetadata Tests', () => {
       'github_ref': 'ref',
       'github_head_ref': 'head_ref',
       'github_base_ref': 'base_ref',
+      'github_action_repository': 'michmich112/version-bumper',
       'runner_name': 'self-hosted',
-      'runner_os': 'runner_os'
-    });
+      'runner_os': 'runner_os',
+      'package_version': packagejson.version
+   });
   });
 
   test('it should replace env variables that are not present with null', () => {
@@ -178,8 +182,10 @@ describe('GetRunMetadata Tests', () => {
       'github_ref': null,
       'github_head_ref': null,
       'github_base_ref': null,
+      'github_action_repository': 'michmich112/version-bumper',
       'runner_name': null,
-      'runner_os': null
+      'runner_os': null,
+      'package_version': packagejson.version
     });
   });
 });

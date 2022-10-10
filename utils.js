@@ -31,21 +31,22 @@ function getActionMetadataFromDirname(dirname) {
 }
 
 function getRunMetadata() {
-  const envVars = [
-    'GITHUB_RUN_ID',
-    'GITHUB_ACTION',
-    'GITHUB_ACTOR',
-    'GITHUB_REPOSITORY',
-    'GITHUB_EVENT_NAME',
-    'GITHUB_REF',
-    'GITHUB_HEAD_REF',
-    'GITHUB_BASE_REF',
-    'RUNNER_NAME',
-    'GITHUB_ACTION_REPOSITORY',
-    'RUNNER_OS'
-  ];
-  return envVars.map(v => ({ [v.toLowerCase()]: process.env[v] || null }))
-    .reduce((acc, cur) => ({ ...acc, ...cur }))
+  const envVarMapping = {
+    'GITHUB_RUN_ID': undefined,
+    'GITHUB_ACTION': undefined,
+    'GITHUB_ACTOR': undefined,
+    'GITHUB_REPOSITORY': undefined,
+    'GITHUB_EVENT_NAME': undefined,
+    'GITHUB_REF': undefined,
+    'GITHUB_HEAD_REF': undefined,
+    'GITHUB_BASE_REF': undefined,
+    'RUNNER_NAME': undefined,
+    'GITHUB_ACTION_REPOSITORY': undefined,
+    'RUNNER_OS': undefined,
+    'npm_package_version': "package_version"
+  }
+
+  return Object.keys(envVarMapping).reduce((acc, cur) => ({...acc, [envVarMapping[cur] ?? cur.toLowerCase()]: process.env[cur] || null}));
 }
 
 module.exports = {
