@@ -1,6 +1,6 @@
 const https = require('https');
 const { getActionMetadataFromDirname, getRunMetadata } = require('./utils.js');
-const packagejson = require('../package.json');
+const packagejson = require('./package.json');
 
 /**
  * Collect the stats for the run
@@ -45,7 +45,7 @@ function sendStats({ executionTime, error }) {
   const data = JSON.stringify({
     ...getRunMetadata(),
     ...getActionMetadataFromDirname(__dirname),
-    "package-version": packagejson.version || null,
+    package_version: packagejson.version || null,
     execution_time: executionTime || null,
     error: error ? {
       name: error.name,
