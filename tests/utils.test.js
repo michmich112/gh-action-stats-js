@@ -166,7 +166,6 @@ describe('GetRunMetadata Tests', () => {
       'github_action_repository': 'michmich112/version-bumper',
       'runner_name': 'self-hosted',
       'runner_os': 'runner_os',
-      'package_version': packagejson.version
    });
   });
 
@@ -185,7 +184,6 @@ describe('GetRunMetadata Tests', () => {
       'github_action_repository': null,
       'runner_name': null,
       'runner_os': null,
-      'package_version': packagejson.version
     });
   });
 });

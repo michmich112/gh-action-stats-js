@@ -42,10 +42,8 @@ function getRunMetadata() {
     'GITHUB_BASE_REF': undefined,
     'RUNNER_NAME': undefined,
     'GITHUB_ACTION_REPOSITORY': undefined,
-    'RUNNER_OS': undefined,
-    'npm_package_version': "package_version"
+    'RUNNER_OS': undefined
   }
-
   return Object.keys(envVarMapping).reduce((acc, cur) => ({...acc, [envVarMapping[cur] ? envVarMapping[cur] : cur.toLowerCase()]: process.env[cur] || null}), {});
 }
 
