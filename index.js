@@ -53,9 +53,9 @@ function sendStats({ executionTime, error }) {
   });
 
   const options = {
-    hostname: 'actions.boringday.co',
+    hostname: 'api.actionstats.app',
     port: 443,
-    path: '/api/newActionRun',
+    path: '/collect',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
